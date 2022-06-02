@@ -1,0 +1,75 @@
+<!-- Title group  -->
+<div class="title-group">
+  <h1 class="mat-h1">Edit Student</h1>
+  <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+<!-- Form -->
+<div class="inner-wrapper">
+  <form
+    [formGroup]="enseignantForm"
+    (ngSubmit)="updateEnseignantForm()"
+    #resetStudentForm="ngForm"
+    novalidate
+  >
+    <!-- Left block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Nom enseignant"
+            formControlName="nom"
+          />
+          <mat-error *ngIf="handleError('nom', 'required')">
+            You must provide a<strong>student name</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Prenom"
+            formControlName="prenom"
+          />
+          <mat-error *ngIf="handleError('prenom', 'required')">
+            You must provide a<strong>student email</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Statut</mat-label>
+          <mat-select formControlName="statut">
+            <mat-option
+              [value]="statut"
+              *ngFor="let statut of statusinArray"
+              >{{ statut }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="handleError('statut', 'required')">
+            Section is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="UC"
+            formControlName="UC"
+          />
+          <mat-error *ngIf="handleError('UC', 'required')">
+            You must provide a<strong>student email</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card>
+    <!-- Submit & Reset -->
+    <mat-card>
+      <div class="full-wrapper button-wrapper">
+        <div class="button-wrapper">
+          <button mat-flat-button color="warn">Update</button>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>
