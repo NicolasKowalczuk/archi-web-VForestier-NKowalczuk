@@ -1,4 +1,4 @@
-import { Enseignant } from '../enseignant.model';
+import { Enseignant } from '../model/enseignant.model';
 import { EnseignantsService } from '../enseignants.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';

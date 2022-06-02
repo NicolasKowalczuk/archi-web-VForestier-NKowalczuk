@@ -2,3 +2,21 @@
   display: block;
   margin-top: 1rem;
 }
+
+table {
+  width: 100%;
+}
+
+.align-right{
+  text-align: right;
+}
+
+.align-center{
+  text-align: center;
+}
+
+button{
+  margin: 0px 5px;
+  align-self: right;
+};
+

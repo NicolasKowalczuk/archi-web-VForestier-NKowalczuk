@@ -18,7 +18,7 @@ enseignantRoute.route('/add-enseignant').post((req, res, next) => {
 });
 
 //Get all enseignants
-enseignantRoute.route('/').get((req, res) => {
+enseignantRoute.route('/enseignants').get((req, res) => {
     Enseignant.find((error, data) => {
       if (error) {
         return next(error)

@@ -13,6 +13,9 @@ let Enseignant = new Schema({
     },
     UC: {
         type: Number
+    },
+    enseignements: {
+        type: Array
     }
 }, {
     collection: 'enseignants'

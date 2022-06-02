@@ -16,6 +16,8 @@ mongoose
 
 // Set up express js port
 const enseignantRoute = require('./routes/enseignant.route')
+const moduleRoute = require('./routes/module.route')
+
 const app = express()
 app.use(bodyParser.json())
 app.use(
@@ -33,6 +35,7 @@ app.use(
 
 // RESTful API root
 app.use('/api', enseignantRoute)
+app.use('/api', moduleRoute)
 // PORT
 const port = process.env.PORT || 8000
 app.listen(port, () => {

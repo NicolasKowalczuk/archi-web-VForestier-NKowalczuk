@@ -1,0 +1,37 @@
+.modules-list{
+  margin-bottom: 30px;
+}
+
+.enseignements-list{
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+th{
+  text-align: center;
+}
+
+td{
+  text-align: center;
+}
+
+.align-left{
+  text-align: left;
+}
+
+.align-right{
+  text-align: right;
+}
+
+.align-center{
+  text-align: center;
+}
+
+button{
+  margin: 0px 5px;
+  align-self: right;
+};
+

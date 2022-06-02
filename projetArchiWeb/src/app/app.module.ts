@@ -17,6 +17,7 @@ import { MatCommonModule } from "@angular/material/core";
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +25,11 @@ import { EnseignantCreateComponent } from './enseignants/enseignant-create/ensei
 import { HeaderComponent } from './header/header.component';
 import { EnseignantListComponent } from './enseignants/enseignant-list/enseignant-list.component';
 import { EnseignantsService } from './enseignants/enseignants.service';
+import { ModulesService } from './enseignants/modules.service';
 import { EnseignantEditComponent } from './enseignants/enseignant-edit/enseignant-edit.component';
+import { EnseignementComponent } from './enseignants/enseignant-enseignement/enseignant-enseignements.component';
+import { EnseignementDialogComponent } from './enseignants/enseignant-enseignement/dialog/enseignement-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +38,8 @@ import { EnseignantEditComponent } from './enseignants/enseignant-edit/enseignan
     HeaderComponent,
     EnseignantListComponent,
     EnseignantEditComponent,
+    EnseignementComponent,
+    EnseignementDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +60,11 @@ import { EnseignantEditComponent } from './enseignants/enseignant-edit/enseignan
     MatCommonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
-  providers: [EnseignantsService],
-  bootstrap: [AppComponent]
+  providers: [EnseignantsService, ModulesService],
+  bootstrap: [AppComponent],
+  entryComponents: []
 })
 export class AppModule { }

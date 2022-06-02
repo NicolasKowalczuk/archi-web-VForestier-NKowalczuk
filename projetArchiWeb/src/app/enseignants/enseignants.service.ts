@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, throwError, Subject } from "rxjs";
 import { catchError, map } from 'rxjs/operators';
 
-import { Enseignant } from "./enseignant.model";
+import { Enseignant } from "./model/enseignant.model";
 
 //Distribue au niveau de root
 @Injectable({providedIn: 'root'})
@@ -40,7 +40,7 @@ export class EnseignantsService {
 
     // Get all enseignants
     GetEnseignants() {
-      return this.http.get(`${this.endpoint}`);
+      return this.http.get(`${this.endpoint}/enseignants`);
     }
 
     GetEnseignant(id: any): Observable<any> {
