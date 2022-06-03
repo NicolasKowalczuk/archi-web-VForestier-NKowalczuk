@@ -1,0 +1,91 @@
+<mat-expansion-panel class="modules-list">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Liste des modules
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <p *ngIf="ModuleData.length <= 0">
+    Aucun module trouvé
+  </p>
+  <div class="table-modules" *ngIf="ModuleData.length > 0">
+    <div>
+      <table mat-table [dataSource]="dataSourceModule">
+        <ng-container matColumnDef="formation">
+          <th mat-header-cell *matHeaderCellDef>Formation</th>
+          <td class="align-left" mat-cell *matCellDef="let element">{{ element.Formation }}</td>
+        </ng-container>
+        <ng-container matColumnDef="semestre">
+          <th class="align-center" mat-header-cell *matHeaderCellDef>Semestre</th>
+          <td mat-cell *matCellDef="let element">{{ element.Semestre }}</td>
+        </ng-container>
+        <ng-container matColumnDef="intitule">
+          <th class="align-left" mat-header-cell *matHeaderCellDef>Intitule</th>
+          <td class="align-left" mat-cell *matCellDef="let element">{{ element['Intitulé'] }}</td>
+        </ng-container>
+        <ng-container matColumnDef="statut">
+          <th class="align-center" mat-header-cell *matHeaderCellDef>Statut</th>
+          <td class="align-center" mat-cell *matCellDef="let element">{{ element.Statut }}</td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th class="align-center" mat-header-cell *matHeaderCellDef>Action</th>
+          <td class="align-center" mat-cell *matCellDef="let element; let i = index">
+            <button mat-raised-button color="primary" class="push-right" (click)="addDataEnseignement(element)">
+              +
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsModule"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsModule"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</mat-expansion-panel>
+
+<h1>Liste des enseignements de {{ currentEnseignant.prenom + " "+ currentEnseignant.nom }}</h1>
+
+<p *ngIf="EnseignementData.length <= 0" class="no-data">
+  Aucun enseignement trouvé
+</p>
+<div class="enseignements-list" *ngIf="EnseignementData.length > 0">
+  <div class="">
+    <table mat-table #tableEnseignement class="mat-elevation-z8 demo-table" [dataSource]="EnseignementData">
+      <ng-container matColumnDef="intituleModule">
+        <th mat-header-cell *matHeaderCellDef>Intitulé du module</th>
+        <td class="align-left" mat-cell *matCellDef="let element">{{ element.module['Intitulé'] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="nbCM">
+        <th mat-header-cell *matHeaderCellDef>Nombre de CM</th>
+        <td mat-cell *matCellDef="let element">{{ element.nbCM }}</td>
+      </ng-container>
+      <ng-container matColumnDef="nbTD">
+        <th mat-header-cell *matHeaderCellDef>Nombre de TD</th>
+        <td mat-cell *matCellDef="let element">{{ element.nbTD }}</td>
+      </ng-container>
+      <ng-container matColumnDef="nbTP">
+        <th class="align-center" mat-header-cell *matHeaderCellDef>Nombre de TP</th>
+        <td class="align-center" mat-cell *matCellDef="let element">{{ element.nbTP }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th class="align-center" mat-header-cell *matHeaderCellDef>Action</th>
+        <td class="align-right" mat-cell *matCellDef="let element; let i = index">
+          <button mat-raised-button color="primary" class="push-right" (click)="openDialog(element)">
+            Editer
+          </button>
+          <button mat-raised-button color="warn" class="push-right" (click)="deleteEnseignement(element)">
+            Supprimer
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsEnseignement"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsEnseignement"></tr>
+    </table>
+  </div>
+</div>
+<div class="full-wrapper button-wrapper">
+  <div class="button-wrapper">
+    <button mat-flat-button color="primary" (click)="updateEnseignant()">Sauvegarder</button>
+  </div>
+</div>

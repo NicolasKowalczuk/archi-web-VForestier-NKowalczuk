@@ -1,0 +1,19 @@
+<mat-dialog-content [formGroup]="form">
+  <h3>{{ enseignement.module['Intitulé'] }}</h3>
+  <mat-form-field>
+    <input matInput type="number" max="{{ enseignement.module.grCM }}" min="0" placeholder="Groupe CM (max: {{ enseignement.module.grCM }} )" formControlName="nbCM">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" max="{{ enseignement.module.grTD }}" min="0" placeholder="Groupe TD (max: {{ enseignement.module.grTD }} )" formControlName="nbTD">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" max="{{ enseignement.module.grTP }}" min="0" placeholder="Groupe TP (max: {{ enseignement.module.grTP }} )" formControlName="nbTP">
+  </mat-form-field>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Fermer</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Sauvegarder</button>
+</mat-dialog-actions>

@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <div>Projet JS</div>
+  <button mat-button [matMenuTriggerFor]="menu">Enseignant</button>
+  <mat-menu #menu="matMenu">
+    <a href="list-enseignant" mat-menu-item>Liste des enseignants</a>
+    <a href="add-enseignant" mat-menu-item>Ajout enseignant</a>
+  </mat-menu>
+
+
+</mat-toolbar>
