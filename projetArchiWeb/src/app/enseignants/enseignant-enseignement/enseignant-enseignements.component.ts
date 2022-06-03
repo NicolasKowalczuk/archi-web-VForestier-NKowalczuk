@@ -36,6 +36,7 @@ export class EnseignementComponent {
     'nbCM',
     'nbTD',
     'nbTP',
+    'generatedUC',
     'action'
   ];
 
@@ -142,9 +143,24 @@ export class EnseignementComponent {
     );
 
     this.tableEnseignement.renderRows();
+  }
 
+  calculUC(enseignement){
+    const statutEnseignant = this.currentEnseignant.statut;
 
-}
+    const module = enseignement.module;
+
+    const UC_CM = enseignement.nbCM * module['h/CM'] * 1.5;
+    const UC_TD = enseignement.nbTD * module['h/TD'];
+    let UC_TP = enseignement.nbTP * module['h/TP'];
+    if(statutEnseignant === "ATER"){
+      UC_TP = UC_TP * 0.75;
+    }
+
+    const totalUC = UC_CM + UC_TD + UC_TP;
+
+    return totalUC;
+  }
 }
 
 
