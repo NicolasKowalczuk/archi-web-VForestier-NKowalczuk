@@ -1,5 +1,6 @@
 <mat-dialog-content [formGroup]="form">
   <h3>{{ enseignement.module['Intitulé'] }}</h3>
+  <p>Si un CM est sélectionné, il faut obligatoirement un groupe de TD ou TP</p>
   <mat-form-field>
     <input matInput type="number" max="{{ enseignement.module.grCM }}" min="0" placeholder="Groupe CM (max: {{ enseignement.module.grCM }} )" formControlName="nbCM">
   </mat-form-field>

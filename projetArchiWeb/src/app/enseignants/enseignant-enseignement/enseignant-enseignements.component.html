@@ -67,6 +67,10 @@
         <th class="align-center" mat-header-cell *matHeaderCellDef>Nombre de TP</th>
         <td class="align-center" mat-cell *matCellDef="let element">{{ element.nbTP }}</td>
       </ng-container>
+      <ng-container matColumnDef="generatedUC">
+        <th class="align-center" mat-header-cell *matHeaderCellDef>Nombre d'UC générées</th>
+        <td class="align-center" mat-cell *matCellDef="let element">{{ calculUC(element) }}</td>
+      </ng-container>
 
       <ng-container matColumnDef="action">
         <th class="align-center" mat-header-cell *matHeaderCellDef>Action</th>
